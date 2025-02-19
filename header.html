@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Hub</title>
+    <link rel="icon" type="image/x-icon" href="Image/Black logo - no background.png">
+    <link rel="stylesheet" href="Code/style.css">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Function to update UI based on session status
+            function updateUI(logged_in, user_name, role) {
+                if (logged_in) {
+                    // Display welcome message and logout button
+                    var welcomeMessage = $('<p>Welcome, ' + user_name + '</p>');
+                    var logoutButton = $('<button class="nav_btn">Logout</button>').on('click', function(e) {
+                        e.preventDefault();
+                        // Perform logout via AJAX
+                        $.ajax({
+                            url: 'Code/logout.php',
+                            type: 'GET',
+                            success: function(response) {
+                                if (response.success) {
+                                    // Redirect or handle UI update after logout
+                                    window.location.href = 'Mainmenu.html';
+                                } else {
+                                    console.error('Logout failed');
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error occurred during logout:', error);
+                            }
+                        });
+                    });
+
+                    // Determine quiz link based on role
+                    var quizLink;
+                    if (role === 'user') {
+                        quizLink = '<li><a href="Test/userindex.php">Quiz</a></li>';
+                    } else if (role === 'admin') {
+                        quizLink = '<li><a href="Test/index.php">Quiz</a></li>';
+                    } else {
+                        // Default case if role is not specified or unknown
+                        quizLink = '<li><a href="#">Quiz</a></li>';
+                    }
+
+                    // Clear existing content and append welcome message + logout button
+                    $('.cta').empty().append(welcomeMessage).append(logoutButton);
+                    $('.nav_links').find('li:nth-child(3)').replaceWith(quizLink); // Replace third li element with quizLink
+                } else {
+                    // Show sign up button
+                    $('.cta').empty().append('<a href="Code/User/UserLogin.html"><button class="nav_btn">Sign Up</button></a>');
+                }
+            }
+
+            // Check if user is logged in
+            $.ajax({
+                url: 'Code/check_session.php',
+                type: 'GET',
+                dataType: 'json', // Ensure expected JSON response
+                success: function(response) {
+                    // Check if response is not empty
+                    if (response && Object.keys(response).length > 0) {
+                        updateUI(response.logged_in, response.user_name, response.role);
+                    } else {
+                        console.error('Empty or invalid response from check_session.php');
+                        // Handle default UI state (assume logged out)
+                        updateUI(false, '', '');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error checking session:', error);
+                    // Default behavior if session check fails (assume user is logged out)
+                    updateUI(false, '', '');
+                }
+            });
+
+            // Handle click on Quiz link when not logged in
+            $(document).on('click', '.nav_links li:nth-child(3) a', function(e) {
+                if (!$('.cta').text().includes('Welcome')) {
+                    e.preventDefault();
+                    alert('Login First');
+                }
+            });
+        });
+    </script>    
+
+</head>
+<body>
+    <header>
+        <img class="logo" src="Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Subjects</a></li>
+                <li><a href="">Quiz</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#Team">Our Team</a></li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+</body>
+</html>
