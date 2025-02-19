@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C exercise1.html">Basic Declaration</a>
+        <a href="C exercise2.html">Basic Algoritms</a>
+        <a href="C exercise3.html">While loop</a>
+        <a href="C exercise4.html">Do-While Loop</a>
+        <a href="C exercise5.html">For Loop</a>
+        <a href="C exercise6.html">Array</a>
+        <a href="C exercise7.html">Pointer</a>
+        <a href="C exercise8.html">Function</a>
+    </div>
+    <div id="header"></div>
+    <div class="Tutorial">
+        <h2>Do-While Loop</h2>
+        <ol>
+            <li>Write a C program to print numbers from 1 to 10 and 10 to 1 using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Numbers from 1 to 10:
+                        0 1 2 3 4 5 6 7 8 9 10
+
+                        Numbers from 10 to 1:
+                        10 9 8 7 6 5 4 3 2 1 
+                    </code>
+                </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt;
+
+                                int main() {
+                                    int i = 1;  // Initialize the loop control variable to 1
+                                
+                                    // Print numbers from 1 to 10
+                                    printf("Print numbers from 1 to 10:\n");
+                                    do {
+                                        printf("%d ", i);  // Print the current value of i
+                                        i++;  // Increment i for the next iteration
+                                    } while (i &lt;= 10);  // Continue the loop as long as i is less than or equal to 10
+                                
+                                    printf("\n");  // Move to the next line for better formatting
+                                
+                                    i = 10;  // Reset i to 10 for the second part of the program
+                                
+                                    // Print numbers from 10 to 1
+                                    printf("\nPrint numbers from 10 to 1:\n");
+                                    do {
+                                        printf("%d ", i);  // Print the current value of i
+                                        i--;  // Decrement i for the next iteration
+                                    } while (i >= 1);  // Continue the loop as long as i is greater than or equal to 1
+                                
+                                    return 0;  // Indicate successful program execution
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a C program that prompts the user to input a series of integers until the user stops by entering 0 using a do-while loop. Calculate and print the sum of all positive integers entered.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Input an integer (enter 0 to stop): 4
+                        Input an integer (enter 0 to stop): 3
+                        Input an integer (enter 0 to stop): 2
+                        Input an integer (enter 0 to stop): -7
+                        Negative integers are not considered. Ignored.
+                        Input an integer (enter 0 to stop): 5
+                        Input an integer (enter 0 to stop): 0
+                        Sum of positive integers: 14
+                    </code>
+                </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt; // Including the input-output stream header file
+                                int main() {
+                                    int num, sum = 0;  // Declare variables to store the entered number and the sum
+                                
+                                    // Prompt the user to input integers until they enter 0
+                                    do {
+                                        printf("Input an integer (enter 0 to stop): ");
+                                        scanf("%d", &num);  // Read the entered number
+                                
+                                        if (num > 0) {
+                                            sum += num;  // Add the positive number to the sum
+                                        } else if (num &lt; 0) {
+                                            printf("Negative integers are not considered. Ignored.\n");
+                                        }
+                                
+                                    } while (num != 0);  // Continue the loop until the user enters 0
+                                
+                                    // Print the sum of positive integers
+                                    printf("Sum of positive integers: %d\n", sum);
+                                
+                                    return 0;  // Indicate successful program execution
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="C exercise3.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="C exercise5.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>

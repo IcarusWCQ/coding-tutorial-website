@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C exercise1.html">Basic Declaration</a>
+        <a href="C exercise2.html">Basic Algoritms</a>
+        <a href="C exercise3.html">While loop</a>
+        <a href="C exercise4.html">Do-While Loop</a>
+        <a href="C exercise5.html">For Loop</a>
+        <a href="C exercise6.html">Array</a>
+        <a href="C exercise7.html">Pointer</a>
+        <a href="C exercise8.html">Function</a>
+    </div>
+    <div id="header"></div>
+    <div class="Tutorial">
+        <h2>Pointer</h2>
+        <ol>
+            <li>Write a program in C to show the basic declaration of a pointer.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Pointer : Show the basic declaration of pointer :                                                            
+                        -------------------------------------------------------                                                       
+                         Here is m=10, n and o are two integer variable and *z is an integer                                          
+                                                                                                                                      
+                         z stores the address of m  = 0x7ffd40630d44                                                                  
+                                                                                                                                      
+                         *z stores the value of m = 10                                                                                
+                                                                                                                                      
+                         &m is the address of m = 0x7ffd40630d44                                                                      
+                                                                                                                                      
+                         &n stores the address of n = 0x7ffd40630d48                                                                  
+                                                                                                                                      
+                         &o  stores the address of o = 0x7ffd40630d4c                                                                 
+                                                                                                                                      
+                         &z stores the address of z = 0x7ffd40630d50 
+                    </code>
+                </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt;
+                                int main()  
+                                {  
+                                    int arr[10];  // Declare an array of size 10 to store integer values
+                                    int i;  
+                                    // Print a message to prompt the user for input
+                                    printf("\n\nRead and Print elements of an array:\n");
+                                    printf("-----------------------------------------\n");	
+                                    // Prompt the user to input 10 elements into the array
+                                    printf("Input 10 elements in the array :\n");  
+                                    for(i=0; i&lt;10; i++)  
+                                    {  
+                                        printf("element - %d : ",i);  // Prompt the user to input the i-th element
+                                        scanf("%d", &arr[i]);  // Read the input and store it in the array
+                                    }  
+                                    // Display the elements in the array
+                                    printf("\nElements in array are: ");  
+                                    for(i=0; i&lt;10; i++)  
+                                    {  
+                                        printf("%d  ", arr[i]);  // Print each element in the array
+                                    } 
+                                    printf("\n");
+                                    return 0;	
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li> Write a program in C to demonstrate how to handle pointers in a program.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Address of m : 0x7ffcc3ad291c
+                        Value of m : 29                                                                                              
+                                                                                                                                    
+                        Now ab is assigned with the address of m.                                                                    
+                        Address of pointer ab : 0x7ffcc3ad291c                                                                       
+                        Content of pointer ab : 29                                                                                   
+                                                                                                                                    
+                        The value of m assigned to 34 now.                                                                           
+                        Address of pointer ab : 0x7ffcc3ad291c                                                                       
+                        Content of pointer ab : 34                                                                                   
+                                                                                                                                    
+                        The pointer variable ab is assigned with the value 7 now.                                                    
+                        Address of m : 0x7ffcc3ad291c                                                                                
+                        Value of m : 7 
+                    </code>
+                </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt; // Including the input-output stream header file
+                                int main()
+                                {
+                                    int* ab; // Declare a pointer variable ab
+                                    int m;   // Declare an integer variable m
+
+                                    m = 29; // Assign the value 29 to the variable m
+
+                                    printf("\n\n Pointer : How to handle the pointers in the program :\n");
+                                    printf("------------------------------------------------------------\n");
+                                    printf(" Here in the declaration ab = int pointer, int m = 29\n\n");
+
+                                    printf(" Address of m : %p\n", &m); // Print the address of variable m
+                                    printf(" Value of m : %d\n\n", m); // Print the value of variable m
+
+                                    ab = &amp;m; // Assign the address of m to the pointer variable ab
+
+                                    printf(" Now ab is assigned with the address of m.\n");
+                                    printf(" Address of pointer ab : %p\n", ab);      // Print the address stored in pointer ab
+                                    printf(" Content of pointer ab : %d\n\n", *ab);   // Print the value pointed to by ab
+
+                                    m = 34; // Assign the value 34 to the variable m
+
+                                    printf(" The value of m assigned to 34 now.\n");
+                                    printf(" Address of pointer ab : %p\n", ab);      // Print the address stored in pointer ab
+                                    printf(" Content of pointer ab : %d\n\n", *ab);   // Print the value pointed to by ab
+
+                                    *ab = 7; // Assign the value 7 to the variable pointed by ab
+
+                                    printf(" The pointer variable ab is assigned the value 7 now.\n");
+                                    printf(" Address of m : %p\n", &m);               // Print the address of variable m
+                                                                                    // as ab contains the address of m
+                                                                                    // *ab changed the value of m and now m becomes 7
+                                    printf(" Value of m : %d\n\n", m);                // Print the value of variable m
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="C exercise6.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="C exercise8.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>

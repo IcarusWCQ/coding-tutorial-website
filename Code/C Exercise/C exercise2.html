@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C exercise1.html">Basic Declaration</a>
+        <a href="C exercise2.html">Basic Algoritms</a>
+        <a href="C exercise3.html">While loop</a>
+        <a href="C exercise4.html">Do-While Loop</a>
+        <a href="C exercise5.html">For Loop</a>
+        <a href="C exercise6.html">Array</a>
+        <a href="C exercise7.html">Pointer</a>
+        <a href="C exercise8.html">Function</a>
+    </div>
+    <div id="header"></div>
+    <div class="Tutorial">
+        <h2>Basic Algoritm</h2>
+        <ol>
+            <li>Write a C program to compute the sum of the two input values. If the two values are the same, then return triple their sum.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        3
+                        12
+                    </code>
+                </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt;
+
+                                int test(int x, int y); // Declare the function 'test' with two integer parameters
+
+                                int main(void)
+                                {
+                                    // Call the function 'test' with arguments 1 and 2 and print the result
+                                    printf("%d", test(1, 2));
+                                
+                                    // Print a newline for formatting
+                                    printf("\n");
+                                
+                                    // Call the function 'test' with arguments 2 and 2 and print the result
+                                    printf("%d", test(2, 2));
+                                }
+                                // Function definition for 'test'
+                                int test(int x, int y)
+                                {
+                                    // Conditional expression: If x is equal to y, return (x + y) multiplied by 3, otherwise return x + y
+                                    return x == y ? (x + y) * 3 : x + y;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a C program that will take a number as input and find the absolute difference between the input number and 51. If the input number is greater than 51, it will return triple the absolute difference.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        6
+                        21
+                        0
+                    </code>
+                </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt; // Including the input-output stream header file
+
+                                int test(int n); // Declare the function 'test' with an integer parameter
+
+                                int main(void)
+                                {
+                                    // Call the function 'test' with argument 53 and print the result
+                                    printf("%d", test(53));
+
+                                    // Print a newline for formatting
+                                    printf("\n");
+
+                                    // Call the function 'test' with argument 30 and print the result
+                                    printf("%d", test(30));
+
+                                    // Print a newline for formatting
+                                    printf("\n");
+
+                                    // Call the function 'test' with argument 51 and print the result
+                                    printf("%d", test(51));
+                                }
+
+                                // Function definition for 'test'
+                                int test(int n)
+                                {
+                                    const int x = 51; // Declare and initialize constant variable 'x'
+
+                                    if (n > x) // Check if 'n' is greater than 'x'
+                                    {
+                                        return (n - x) * 3; // Return the result of the expression (n - x) multiplied by 3
+                                    }
+
+                                    return x - n; // Return the result of the expression x minus n
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="C exercise1.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="C exercise3.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="/" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Tutorial</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C Tutorial1.html">Hello World</a>
+        <a href="C Tutorial2.html">Variables</a>
+        <a href="C Tutorial3.html">Data Types</a>
+        <a href="C Tutorial4.html">If Statement</a>
+        <a href="C Tutorial5.html">Loops</a>
+        <a href="C Tutorial6.html">Logical Operator</a>
+        <a href="C Tutorial7.html">Array</a>
+        <a href="C Tutorial8.html">Pointers</a>
+        <a href="C Tutorial9.html">Functions</a>
+    </div>    
+    <!-- Include header.html -->
+    <div id="header"></div>
+    <!-- Centered iframe container -->
+    <div class="iframe-container">    <!--Paste iframe here,  width = 800 heigth 400-->
+        <iframe width="800" height="400" src="https://www.youtube.com/embed/nrbBmoINqtk?si=s9hxNjHWADGJiNXf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+    <div class="Tutorial">
+        <h2>Hello World</h2>
+        <ol>
+            <li>Write a program that prints "Hello, World!" to the console using printf. <!-- Paste The Question Here --></li>
+            <div class="code-snippet">
+                <pre>
+                    <code><!-- Paste the incomplete question here -->
+</code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Hello, World!<!-- Paste the Sample Output here -->
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that prints your name, age, and favorite hobby using printf.<!-- Paste The Question Here --></li>
+            <div class="code-snippet">
+                <pre>
+                    <code><!-- Paste the incomplete code here -->
+</code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Name: John Doe
+                        Age: 20
+                        Hobby: Reading
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that prints the values of two variables (an integer and a float) using printf.<!-- Paste The Question Here --></li>
+            <div class="code-snippet">
+                <pre>
+                    <code><!-- Paste the incomplete code here -->
+</code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        The integer value is: 10
+                        The float value is: 3.14
+                    </code>
+                </pre>
+            </div>
+            <li> Write a program that prints a formatted table of numbers and their squares using printf.<!-- Paste The Question Here --></li>
+            <div class="code-snippet">
+                <pre>
+                    <code><!-- Paste the incomplete code here -->
+</code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Number    Square
+                        1         1
+                        2         4
+                        3         9
+                        4         16
+                    </code>
+                </pre>
+            </div>
+            <li>Question: Write a program that prints a formatted message showing a person's first name, last name, and age using printf.<!-- Paste The Question Here --></li>
+            <div class="code-snippet">
+                <pre>
+                    <code><!-- Paste the incomplete code here -->
+</code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        First Name: Alice
+                        Last Name: Johnson
+                        Age: 30
+                    </code>
+                </pre>
+            </div>
+        </ol>
+    </div>
+    <div class="next-button">
+        <a href="C Tutorial2.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

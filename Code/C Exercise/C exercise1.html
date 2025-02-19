@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C exercise1.html">Basic Declaration</a>
+        <a href="C exercise2.html">Basic Algoritms</a>
+        <a href="C exercise3.html">While loop</a>
+        <a href="C exercise4.html">Do-While Loop</a>
+        <a href="C exercise5.html">For Loop</a>
+        <a href="C exercise6.html">Array</a>
+        <a href="C exercise7.html">Pointer</a>
+        <a href="C exercise8.html">Function</a>
+    </div>
+    <div id="header"></div>
+    <div class="Tutorial">
+        <h2>Basic Declaration</h2>
+        <ol>
+            <li>Write a C program to print your name, date of birth, and mobile number.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Name   : Alexandra Abramov  
+                        DOB    : July 14, 1975  
+                        Mobile : 99-9999999999
+                    </code>
+                </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt;
+
+                                    int main()  
+                                    {
+                                        // Print Name
+                                        printf("Name   : Alexandra Abramov\n"); 
+                                        
+                                        // Print Date of Birth
+                                        printf("DOB    : July 14, 1975\n"); 
+                                        
+                                        // Print Mobile Number
+                                        printf("Mobile : 99-9999999999\n"); 
+                                        
+                                        // Indicate successful execution
+                                        return(0); 
+                                    }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a C program to compute the perimeter and area of a circle with a given radius.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                <pre>
+                    Sample Output
+                    <code>
+                        Perimeter of the Circle = 37.680000 inches
+                        Area of the Circle = 113.040001 square inches
+                    </code>
+                </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;stdio.h&gt; // Including the input-output stream header file
+
+                                int main() {
+                                    int radius;      /* Variable to store the radius of the circle */
+                                    float area, perimeter;    /* Variables to store the area and perimeter of the circle */ 
+                                    radius = 6;      /* Assigning a value to the radius */
+                                 
+                                    /* Calculating the perimeter of the circle */
+                                    perimeter = 2 * 3.14 * radius;
+                                    printf("Perimeter of the Circle = %f inches\n", perimeter);
+                                     
+                                    /* Calculating the area of the circle */
+                                    area = 3.14 * radius * radius;
+                                    printf("Area of the Circle = %f square inches\n", area);
+                                 
+                                    return(0);
+                                 }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="next-button">
+        <a href="C exercise2.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="/" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
