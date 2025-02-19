@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Tutorial</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="CSharp Tutorial1.html">Outputs</a>
+        <a href="CSharp Tutorial2.html">Variables</a>
+        <a href="CSharp Tutorial3.html">Data Types</a>
+        <a href="CSharp Tutorial4.html">If Statements</a>
+        <a href="CSharp Tutorial5.html">Loops</a>
+        <a href="CSharp Tutorial6.html">Switch</a>
+        <a href="CSharp Tutorial7.html">Logical Operator</a>
+        <a href="CSharp Tutorial8.html">Array</a>
+        <a href="CSharp Tutorial9.html">Break/Continue</a>
+        <a href="CSharp Tutorial10.html">Function</a>
+    </div>
+    <!-- Centered iframe container -->
+    <div class="iframe-container">    
+        <iframe width="800" height="400" src="https://www.youtube.com/embed/uxS_0S0dNs8?si=0ZscLElacybp0F0A&amp;start=3996" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="Tutorial">    
+    <!-- Include header.html -->
+    <div id="header"></div>    
+        <h2>Logical Operator</h2>
+        <ol>
+            <li>Write a program that checks if a number is both positive and even. The program should take a user input and determine if the number meets both conditions. If both conditions are met, print a message indicating that the number is positive and even. Otherwise, indicate which conditions were not met.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a number: 4
+                        The number is positive and even.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a person is eligible to vote and is a registered voter. The program should prompt the user for their age and whether they are a registered voter. If the user is 18 or older and is a registered voter, print a message indicating they are eligible to vote. Otherwise, indicate the reasons for ineligibility.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter your age: 20
+                        Are you a registered voter (yes/no): yes
+                        You are eligible to vote and you are a registered voter.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a character is a vowel and is in uppercase. The program should take a character input from the user and determine if the character is both a vowel (A, E, I, O, U) and uppercase. If both conditions are met, print a message indicating that the character is a vowel and uppercase.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a character: A
+                        The character is a vowel and is uppercase.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a year is a leap year and a century year. A year is a leap year if it is divisible by 4, but not divisible by 100, unless it is also divisible by 400. A century year is any year divisible by 100. The program should take a year as input and determine if it meets both conditions.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a year: 2000
+                        The year is a leap year and a century year.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a number is within the range of 1 to 100 and is a prime number. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. The program should prompt the user for a number and determine if it meets both conditions.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a number: 7
+                        The number is within the range of 1 to 100 and is a prime number.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a number is both negative and odd. The program should prompt the user for a number and determine if the number is both negative and odd. If both conditions are met, print a message indicating that the number is negative and odd.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a number: -3
+                        The number is negative and odd.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a string contains both uppercase and lowercase letters. The program should prompt the user for a string and determine if the string contains at least one uppercase letter and one lowercase letter. If both conditions are met, print a message indicating that the string contains both uppercase and lowercase letters.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a string: Hello
+                        The string contains both uppercase and lowercase letters.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a number is a multiple of both 3 and 5. The program should prompt the user for a number and determine if the number is divisible by both 3 and 5. If both conditions are met, print a message indicating that the number is a multiple of both 3 and 5.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter a number: 15
+                        The number is a multiple of both 3 and 5.
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks if a person's age is between 13 and 19, inclusive, and if they are a teenager. The program should prompt the user for their age and determine if the age is within the specified range. If the condition is met, print a message indicating that the person is a teenager.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Enter your age: 16
+                        You are a teenager.
+                    </code>
+                </pre>
+            </div>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="CSharp Tutorial6.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="CSharp Tutorial8.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

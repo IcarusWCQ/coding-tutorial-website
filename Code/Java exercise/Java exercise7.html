@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Java exercise1.html">Basic</a>
+        <a href="Java exercise2.html">Basic Algorithms</a>
+        <a href="Java exercise3.html">Loops</a>
+        <a href="Java exercise4.html">If Statements</a>
+        <a href="Java exercise5.html">Switch Case</a>
+        <a href="Java exercise6.html">Logical Operators</a>
+        <a href="Java exercise7.html">Arrays</a>
+        <a href="Java exercise8.html">Break/Continue</a>
+        <a href="Java exercise9.html">Function</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Arrays</h2>
+
+        <h3>Find the Largest Number in an Array</h3>
+        <ol>
+            <li>Write a Java program to find the largest number in an array.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Array: [1, 2, 3, 4, 5]
+                            The largest number is 5
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class LargestNumberInArray {
+                                    public static void main(String[] args) {
+                                        int[] arr = {1, 2, 3, 4, 5};
+                                        int max = arr[0];
+                                        for (int i = 1; i < arr.length; i++) {
+                                            if (arr[i] > max) {
+                                                max = arr[i];
+                                            }
+                                        }
+                                        System.out.println("The largest number is " + max);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Sum of All Elements in an Array</h3>
+        
+            <li>Write a Java program to find the sum of all elements in an array.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Array: [1, 2, 3, 4, 5]
+                            Sum of all elements: 15
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class SumOfArray {
+                                    public static void main(String[] args) {
+                                        int[] arr = {1, 2, 3, 4, 5};
+                                        int sum = 0;
+                                        for (int i = 0; i < arr.length; i++) {
+                                            sum += arr[i];
+                                        }
+                                        System.out.println("Sum of all elements: " + sum);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Reverse an Array</h3>
+        
+            <li>Write a Java program to reverse an array.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Original array: [1, 2, 3, 4, 5]
+                            Reversed array: [5, 4, 3, 2, 1]
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class ReverseArray {
+                                    public static void main(String[] args) {
+                                        int[] arr = {1, 2, 3, 4, 5};
+                                        System.out.print("Original array: ");
+                                        for (int i = 0; i < arr.length; i++) {
+                                            System.out.print(arr[i] + " ");
+                                        }
+                                        System.out.println();
+                                        System.out.print("Reversed array: ");
+                                        for (int i = arr.length - 1; i >= 0; i--) {
+                                            System.out.print(arr[i] + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Find the Second Largest Number in an Array</h3>
+        
+            <li>Write a Java program to find the second largest number in an array.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Array: [1, 2, 3, 4, 5]
+                            The second largest number is 4
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class SecondLargestInArray {
+                                    public static void main(String[] args) {
+                                        int[] arr = {1, 2, 3, 4, 5};
+                                        int largest = arr[0];
+                                        int secondLargest = Integer.MIN_VALUE;
+                                        for (int i = 1; i < arr.length; i++) {
+                                            if (arr[i] > largest) {
+                                                secondLargest = largest;
+                                                largest = arr[i];
+                                            } else if (arr[i] > secondLargest && arr[i] != largest) {
+                                                secondLargest = arr[i];
+                                            }
+                                        }
+                                        System.out.println("The second largest number is " + secondLargest);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Remove Duplicates from an Array</h3>
+        
+            <li>Write a Java program to remove duplicate elements from an array.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Original array: [1, 2, 2, 3, 4, 4, 5]
+                            Array without duplicates: [1, 2, 3, 4, 5]
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Arrays;
+
+                                public class RemoveDuplicatesFromArray {
+                                    public static void main(String[] args) {
+                                        int[] arr = {1, 2, 2, 3, 4, 4, 5};
+                                        Arrays.sort(arr);
+                                        int[] temp = new int[arr.length];
+                                        int j = 0;
+                                        for (int i = 0; i < arr.length - 1; i++) {
+                                            if (arr[i] != arr[i + 1]) {
+                                                temp[j++] = arr[i];
+                                            }
+                                        }
+                                        temp[j++] = arr[arr.length - 1];
+
+                                        int[] newArr = new int[j];
+                                        for (int i = 0; i < j; i++) {
+                                            newArr[i] = temp[i];
+                                        }
+
+                                        System.out.print("Array without duplicates: ");
+                                        for (int i : newArr) {
+                                            System.out.print(i + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Java exercise6.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Java exercise8.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

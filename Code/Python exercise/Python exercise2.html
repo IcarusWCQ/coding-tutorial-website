@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Python exercise1.html">Basic</a>
+        <a href="Python exercise2.html">Basic Algorithms</a>
+        <a href="Python exercise3.html">If Statements</a>
+        <a href="Python exercise4.html">Loop</a>
+        <a href="Python exercise5.html">Logical Operators</a>
+        <a href="Python exercise6.html">Arrays</a>
+        <a href="Python exercise7.html">Functions</a>
+        <a href="Python exercise8.html">Classes/Objects</a>
+        <a href="Python exercise9.html">Inheritance</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Basic Python</h2>
+
+        <h3>Check Palindrome</h3>
+        <ol>
+            <li>Write a Python program to check if a given string is a palindrome.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a string: madam
+                            The string is a palindrome.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                def is_palindrome(s):
+                                    return s == s[::-1]
+
+                                s = input("Enter a string: ")
+                                if is_palindrome(s):
+                                    print("The string is a palindrome.")
+                                else:
+                                    print("The string is not a palindrome.")
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Fibonacci Series</h3>
+    
+            <li>Write a Python program to generate the first n numbers in the Fibonacci series.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of terms: 5
+                            Fibonacci Series: 0 1 1 2 3
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                def fibonacci(n):
+                                    a, b = 0, 1
+                                    for _ in range(n):
+                                        yield a
+                                        a, b = b, a + b
+
+                                n = int(input("Enter the number of terms: "))
+                                print("Fibonacci Series:", ' '.join(map(str, fibonacci(n))))
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Find the Largest Number in a List</h3>
+        
+            <li>Write a Python program to find the largest number in a list.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            List: [1, 2, 3, 4, 5]
+                            The largest number is 5
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                def find_largest(lst):
+                                    return max(lst)
+
+                                lst = [1, 2, 3, 4, 5]
+                                print("List:", lst)
+                                print("The largest number is", find_largest(lst))
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Sum of Digits in a Number</h3>
+        
+            <li>Write a Python program to find the sum of digits in a number.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 123
+                            Sum of digits: 6
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                def sum_of_digits(n):
+                                    return sum(int(digit) for digit in str(n))
+
+                                n = int(input("Enter a number: "))
+                                print("Sum of digits:", sum_of_digits(n))
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Count Vowels in a String</h3>
+        
+            <li>Write a Python program to count the number of vowels in a given string.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a string: hello world
+                            Number of vowels: 3
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                def count_vowels(s):
+                                    vowels = 'aeiouAEIOU'
+                                    return sum(1 for char in s if char in vowels)
+
+                                s = input("Enter a string: ")
+                                print("Number of vowels:", count_vowels(s))
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Python exercise1.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Python exercise3.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

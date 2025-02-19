@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Tutorial</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="CSharp Tutorial1.html">Outputs</a>
+        <a href="CSharp Tutorial2.html">Variables</a>
+        <a href="CSharp Tutorial3.html">Data Types</a>
+        <a href="CSharp Tutorial4.html">If Statements</a>
+        <a href="CSharp Tutorial5.html">Loops</a>
+        <a href="CSharp Tutorial6.html">Switch</a>
+        <a href="CSharp Tutorial7.html">Logical Operator</a>
+        <a href="CSharp Tutorial8.html">Array</a>
+        <a href="CSharp Tutorial9.html">Break/Continue</a>
+        <a href="CSharp Tutorial10.html">Function</a>
+    </div>
+    <!-- Centered iframe container -->
+    <div class="iframe-container">    <!--Paste iframe here,  width = 800 heigth 400-->
+        <iframe width="800" height="400" src="https://www.youtube.com/embed/6CW-znzcqx4?si=qGjF32J0w84hjwoz&amp;start=5073" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+    <div class="Tutorial">    
+    <!-- Include header.html -->
+    <div id="header"></div>    
+        <h2>Data Types</h2>
+        <ol>
+            <li>Write a program that declares and initializes a variable of each primitive data type in C# (int, double, char, string, bool) and prints them. Also, print the type of each variable using the GetType() method.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        int: 10
+                        double: 20.5
+                        char: A
+                        string: Hello, World!
+                        bool: True
+                        Type of int: System.Int32
+                        Type of double: System.Double
+                        Type of char: System.Char
+                        Type of string: System.String
+                        Type of bool: System.Boolean
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that converts a double to an int and a string to a char. Print the original and converted values.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Original double: 9.99
+                        Converted to int: 9
+                        Original string: Hello
+                        Converted to char: H
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that checks the maximum and minimum values of an int and a double in C#. Print these values.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Max value of int: 2147483647
+                        Min value of int: -2147483648
+                        Max value of double: 1.7976931348623157E+308
+                        Min value of double: -1.7976931348623157E+308
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that declares a decimal variable and prints its value before and after assigning a very large number to it.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Initial value of decimal: 0
+                        Value after assignment: 79228162514264337593543950335
+                    </code>
+                </pre>
+            </div>
+            <li>Write a program that shows the difference between float and double precision. Declare two variables, one float and one double, and assign them the same value. Print both values to see the difference in precision.</li>
+            <div class="code-snippet">
+                <pre>
+                    <code>
+                    </code>
+                </pre>
+                <pre>
+                    Sample Output
+                    <code>
+                        Value of float: 3.1415927
+                        Value of double: 3.141592653589793
+                    </code>
+                </pre>
+            </div>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="CSharp Tutorial2.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="CSharp Tutorial4.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Csharp exercise1.html">Basic</a>
+        <a href="Csharp exercise2.html">Basic Algorithms</a>
+        <a href="Csharp exercise3.html">Switch Case</a>
+        <a href="Csharp exercise4.html">If Statements</a>
+        <a href="Csharp exercise5.html">Loop</a>
+        <a href="Csharp exercise6.html">Arrays</a>
+        <a href="Csharp exercise7.html">Logical Operators</a>
+        <a href="Csharp exercise8.html">Functions</a>
+        <a href="Csharp exercise9.html">Break/Continue</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Functions in C#</h2>
+
+        <h3>Calculate Factorial Using Function</h3>
+        <ol>
+            <li>Write a C# function to calculate the factorial of a number.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            Factorial of 5 is 120.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int num = Convert.ToInt32(Console.ReadLine());
+                                        int result = Factorial(num);
+                                        Console.WriteLine($"Factorial of {num} is {result}.");
+                                    }
+
+                                    static int Factorial(int n)
+                                    {
+                                        if (n == 0)
+                                            return 1;
+                                        else
+                                            return n * Factorial(n - 1);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Check Prime Number Using Function</h3>
+        
+            <li>Write a C# function to check if a number is prime.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 7
+                            7 is a prime number.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int num = Convert.ToInt32(Console.ReadLine());
+
+                                        if (IsPrime(num))
+                                        {
+                                            Console.WriteLine($"{num} is a prime number.");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine($"{num} is not a prime number.");
+                                        }
+                                    }
+
+                                    static bool IsPrime(int n)
+                                    {
+                                        if (n <= 1)
+                                            return false;
+                                        for (int i = 2; i <= Math.Sqrt(n); i++)
+                                        {
+                                            if (n % i == 0)
+                                                return false;
+                                        }
+                                        return true;
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Find GCD Using Function</h3>
+        
+            <li>Write a C# function to find the Greatest Common Divisor (GCD) of two numbers.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter first number: 56
+                            Enter second number: 98
+                            GCD of 56 and 98 is 14.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter first number: ");
+                                        int a = Convert.ToInt32(Console.ReadLine());
+                                        Console.Write("Enter second number: ");
+                                        int b = Convert.ToInt32(Console.ReadLine());
+
+                                        int gcd = GCD(a, b);
+                                        Console.WriteLine($"GCD of {a} and {b} is {gcd}.");
+                                    }
+
+                                    static int GCD(int a, int b)
+                                    {
+                                        while (b != 0)
+                                        {
+                                            int temp = b;
+                                            b = a % b;
+                                            a = temp;
+                                        }
+                                        return a;
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Convert Temperature Using Function</h3>
+        
+            <li>Write a C# function to convert temperature from Celsius to Fahrenheit.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter temperature in Celsius: 25
+                            Temperature in Fahrenheit: 77
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter temperature in Celsius: ");
+                                        double celsius = Convert.ToDouble(Console.ReadLine());
+
+                                        double fahrenheit = CelsiusToFahrenheit(celsius);
+                                        Console.WriteLine($"Temperature in Fahrenheit: {fahrenheit}");
+                                    }
+
+                                    static double CelsiusToFahrenheit(double c)
+                                    {
+                                        return (c * 9 / 5) + 32;
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Find Fibonacci Using Function</h3>
+        
+            <li>Write a C# function to find the nth Fibonacci number.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the position of the Fibonacci number: 7
+                            The 7th Fibonacci number is 13.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the position of the Fibonacci number: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int fibonacci = Fibonacci(n);
+                                        Console.WriteLine($"The {n}th Fibonacci number is {fibonacci}.");
+                                    }
+
+                                    static int Fibonacci(int n)
+                                    {
+                                        if (n <= 1)
+                                            return n;
+                                        else
+                                            return Fibonacci(n - 1) + Fibonacci(n - 2);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Csharp exercise7.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Csharp exercise9.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

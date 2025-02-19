@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Python exercise1.html">Basic</a>
+        <a href="Python exercise2.html">Basic Algorithms</a>
+        <a href="Python exercise3.html">If Statements</a>
+        <a href="Python exercise4.html">Loop</a>
+        <a href="Python exercise5.html">Logical Operators</a>
+        <a href="Python exercise6.html">Arrays</a>
+        <a href="Python exercise7.html">Functions</a>
+        <a href="Python exercise8.html">Classes/Objects</a>
+        <a href="Python exercise9.html">Inheritance</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Classes/Objects</h2>
+
+        <h3>Define a Class</h3>
+        <ol>
+            <li>Write a Python program to create a class named `Rectangle` with attributes length and width, and a method to calculate the area.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Length: 5
+                            Width: 3
+                            Area: 15
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Rectangle:
+                                    def __init__(self, length, width):
+                                        self.length = length
+                                        self.width = width
+
+                                    def area(self):
+                                        return self.length * self.width
+
+                                length = int(input("Length: "))
+                                width = int(input("Width: "))
+                                rect = Rectangle(length, width)
+                                print("Area:", rect.area())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Inheritance</h3>
+        
+            <li>Write a Python program to create a base class `Person` with attributes name and age, and a derived class `Student` with an attribute grade. Include a method in the `Student` class to display the student's details.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Name: John
+                            Age: 20
+                            Grade: A
+                            Student Details: Name: John, Age: 20, Grade: A
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Person:
+                                    def __init__(self, name, age):
+                                        self.name = name
+                                        self.age = age
+
+                                class Student(Person):
+                                    def __init__(self, name, age, grade):
+                                        super().__init__(name, age)
+                                        self.grade = grade
+
+                                    def display(self):
+                                        print(f"Student Details: Name: {self.name}, Age: {self.age}, Grade: {self.grade}")
+
+                                name = input("Name: ")
+                                age = int(input("Age: "))
+                                grade = input("Grade: ")
+                                student = Student(name, age, grade)
+                                student.display()
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Method Overriding</h3>
+        
+            <li>Write a Python program to create a base class `Shape` with a method `area` that returns 0. Create a derived class `Circle` with an attribute radius and override the `area` method to calculate the area of the circle.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Radius: 5
+                            Area of Circle: 78.53981633974483
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import math
+
+                                class Shape:
+                                    def area(self):
+                                        return 0
+
+                                class Circle(Shape):
+                                    def __init__(self, radius):
+                                        self.radius = radius
+
+                                    def area(self):
+                                        return math.pi * self.radius ** 2
+
+                                radius = float(input("Radius: "))
+                                circle = Circle(radius)
+                                print("Area of Circle:", circle.area())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Encapsulation</h3>
+        
+            <li>Write a Python program to create a class `BankAccount` with attributes account number and balance. Include methods to deposit and withdraw money, ensuring the balance never goes negative.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Account Number: 123456
+                            Initial Balance: 1000
+                            Deposit: 500
+                            New Balance: 1500
+                            Withdraw: 700
+                            New Balance: 800
+                            Withdraw: 900
+                            Insufficient funds.
+                            Balance: 800
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class BankAccount:
+                                    def __init__(self, account_number, balance=0):
+                                        self.account_number = account_number
+                                        self.__balance = balance
+
+                                    def deposit(self, amount):
+                                        if amount > 0:
+                                            self.__balance += amount
+                                        else:
+                                            print("Deposit amount must be positive.")
+
+                                    def withdraw(self, amount):
+                                        if 0 < amount <= self.__balance:
+                                            self.__balance -= amount
+                                        else:
+                                            print("Insufficient funds.")
+
+                                    def get_balance(self):
+                                        return self.__balance
+
+                                account_number = input("Account Number: ")
+                                initial_balance = float(input("Initial Balance: "))
+                                account = BankAccount(account_number, initial_balance)
+                                
+                                deposit_amount = float(input("Deposit: "))
+                                account.deposit(deposit_amount)
+                                print("New Balance:", account.get_balance())
+                                
+                                withdraw_amount = float(input("Withdraw: "))
+                                account.withdraw(withdraw_amount)
+                                print("New Balance:", account.get_balance())
+
+                                withdraw_amount = float(input("Withdraw: "))
+                                account.withdraw(withdraw_amount)
+                                print("Balance:", account.get_balance())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Polymorphism</h3>
+        
+            <li>Write a Python program to create a base class `Animal` with a method `sound` that returns a generic sound. Create derived classes `Dog` and `Cat` that override the `sound` method to return "Bark" and "Meow" respectively. Create a function that takes an object of the `Animal` class and calls its `sound` method.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Dog sound: Bark
+                            Cat sound: Meow
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Animal:
+                                    def sound(self):
+                                        return "Some sound"
+
+                                class Dog(Animal):
+                                    def sound(self):
+                                        return "Bark"
+
+                                class Cat(Animal):
+                                    def sound(self):
+                                        return "Meow"
+
+                                def animal_sound(animal):
+                                    print(animal.sound())
+
+                                dog = Dog()
+                                cat = Cat()
+                                print("Dog sound:", dog.sound())
+                                print("Cat sound:", cat.sound())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Python exercise7.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Python exercise9.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

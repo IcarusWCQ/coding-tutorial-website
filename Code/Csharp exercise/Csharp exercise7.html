@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Csharp exercise1.html">Basic</a>
+        <a href="Csharp exercise2.html">Basic Algorithms</a>
+        <a href="Csharp exercise3.html">Switch Case</a>
+        <a href="Csharp exercise4.html">If Statements</a>
+        <a href="Csharp exercise5.html">Loop</a>
+        <a href="Csharp exercise6.html">Arrays</a>
+        <a href="Csharp exercise7.html">Logical Operators</a>
+        <a href="Csharp exercise8.html">Functions</a>
+        <a href="Csharp exercise9.html">Break/Continue</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Arrays in C#</h2>
+
+        <h3>Find the Maximum Element</h3>
+        <ol>
+            <li>Write a C# program to find the maximum element in an array of integers.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of elements: 5
+                            Enter element 1: 3
+                            Enter element 2: 1
+                            Enter element 3: 4
+                            Enter element 4: 1
+                            Enter element 5: 5
+                            The maximum element is 5.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the number of elements: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr = new int[n];
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        int max = arr[0];
+                                        for (int i = 1; i < arr.Length; i++)
+                                        {
+                                            if (arr[i] > max)
+                                            {
+                                                max = arr[i];
+                                            }
+                                        }
+
+                                        Console.WriteLine($"The maximum element is {max}.");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Reverse an Array</h3>
+    
+            <li>Write a C# program to reverse the elements of an array.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of elements: 5
+                            Enter element 1: 1
+                            Enter element 2: 2
+                            Enter element 3: 3
+                            Enter element 4: 4
+                            Enter element 5: 5
+                            Reversed array: 5 4 3 2 1
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the number of elements: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr = new int[n];
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        Array.Reverse(arr);
+
+                                        Console.Write("Reversed array: ");
+                                        foreach (int elem in arr)
+                                        {
+                                            Console.Write(elem + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Sum of Elements</h3>
+        
+            <li>Write a C# program to find the sum of all elements in an array.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of elements: 5
+                            Enter element 1: 1
+                            Enter element 2: 2
+                            Enter element 3: 3
+                            Enter element 4: 4
+                            Enter element 5: 5
+                            The sum of the elements is 15.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the number of elements: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr = new int[n];
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        int sum = 0;
+                                        foreach (int elem in arr)
+                                        {
+                                            sum += elem;
+                                        }
+
+                                        Console.WriteLine($"The sum of the elements is {sum}.");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Find Duplicate Elements</h3>
+        
+            <li>Write a C# program to find duplicate elements in an array.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of elements: 6
+                            Enter element 1: 1
+                            Enter element 2: 2
+                            Enter element 3: 3
+                            Enter element 4: 2
+                            Enter element 5: 4
+                            Enter element 6: 1
+                            Duplicate elements: 1 2
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+                                using System.Collections.Generic;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the number of elements: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr = new int[n];
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        HashSet<int> uniqueElements = new HashSet<int>();
+                                        HashSet<int> duplicateElements = new HashSet<int>();
+
+                                        foreach (int elem in arr)
+                                        {
+                                            if (!uniqueElements.Add(elem))
+                                            {
+                                                duplicateElements.Add(elem);
+                                            }
+                                        }
+
+                                        Console.Write("Duplicate elements: ");
+                                        foreach (int elem in duplicateElements)
+                                        {
+                                            Console.Write(elem + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Merge Two Arrays</h3>
+        
+            <li>Write a C# program to merge two arrays into a third array.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the number of elements in the first array: 3
+                            Enter element 1: 1
+                            Enter element 2: 2
+                            Enter element 3: 3
+                            Enter the number of elements in the second array: 3
+                            Enter element 1: 4
+                            Enter element 2: 5
+                            Enter element 3: 6
+                            Merged array: 1 2 3 4 5 6
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the number of elements in the first array: ");
+                                        int n1 = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr1 = new int[n1];
+                                        for (int i = 0; i < n1; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr1[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        Console.Write("Enter the number of elements in the second array: ");
+                                        int n2 = Convert.ToInt32(Console.ReadLine());
+
+                                        int[] arr2 = new int[n2];
+                                        for (int i = 0; i < n2; i++)
+                                        {
+                                            Console.Write($"Enter element {i + 1}: ");
+                                            arr2[i] = Convert.ToInt32(Console.ReadLine());
+                                        }
+
+                                        int[] mergedArray = new int[n1 + n2];
+                                        arr1.CopyTo(mergedArray, 0);
+                                        arr2.CopyTo(mergedArray, n1);
+
+                                        Console.Write("Merged array: ");
+                                        foreach (int elem in mergedArray)
+                                        {
+                                            Console.Write(elem + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Csharp exercise6.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Csharp exercise8.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>
