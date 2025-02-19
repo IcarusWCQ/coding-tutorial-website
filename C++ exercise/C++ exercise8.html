@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C++ exercise1.html">Basic</a>
+        <a href="C++ exercise2.html">Basic Algorithms</a>
+        <a href="C++ exercise3.html">Loops</a>
+        <a href="C++ exercise4.html">If Statements</a>
+        <a href="C++ exercise5.html">Switch Case</a>
+        <a href="C++ exercise6.html">Logical Operators</a>
+        <a href="C++ exercise7.html">Arrays</a>
+        <a href="C++ exercise8.html">Pointers</a>
+        <a href="C++ exercise9.html">Functions</a>
+    </div>
+     <!-- Include header.html -->
+     <div id="header"></div>   
+    <div class="Tutorial">
+        <h2>Pointers</h2>
+
+        <h3>Pointer Arithmetic</h3>
+        <ol>
+            <li>Write a C++ program to demonstrate pointer arithmetic by iterating through an array using a pointer.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Array: [10, 20, 30, 40, 50]
+                            Using pointer arithmetic to iterate through the array:
+                            10 20 30 40 50
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int arr[] = {10, 20, 30, 40, 50};
+                                    int *ptr = arr;
+                                    cout &lt;&lt; "Using pointer arithmetic to iterate through the array:" &lt;&lt; endl;
+                                    for (int i = 0; i < 5; i++) {
+                                        cout &lt;&lt; *(ptr + i) &lt;&lt; " ";
+                                    }
+                                    cout &lt;&lt; endl;
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Swapping Variables</h3>
+        
+            <li>Write a C++ program to swap two variables using pointers.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Before swap: a = 10, b = 20
+                            After swap: a = 20, b = 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                void swap(int *x, int *y) {
+                                    int temp = *x;
+                                    *x = *y;
+                                    *y = temp;
+                                }
+
+                                int main() {
+                                    int a = 10, b = 20;
+                                    cout &lt;&lt; "Before swap: a = " &lt;&lt; a &lt;&lt; ", b = " &lt;&lt; b &lt;&lt; endl;
+                                    swap(&a, &b);
+                                    cout &lt;&lt; "After swap: a = " &lt;&lt; a &lt;&lt; ", b = " &lt;&lt; b &lt;&lt; endl;
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Dynamic Memory Allocation</h3>
+        
+            <li>Write a C++ program to allocate memory dynamically for an array using pointers and then release the memory.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter number of elements: 5
+                            Enter elements: 1 2 3 4 5
+                            Elements are: 1 2 3 4 5
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int n;
+                                    cout &lt;&lt; "Enter number of elements: ";
+                                    cin >> n;
+                                    int *arr = new int[n];
+                                    cout &lt;&lt; "Enter elements: ";
+                                    for (int i = 0; i < n; i++) {
+                                        cin >> arr[i];
+                                    }
+                                    cout &lt;&lt; "Elements are: ";
+                                    for (int i = 0; i < n; i++) {
+                                        cout &lt;&lt; arr[i] &lt;&lt; " ";
+                                    }
+                                    cout &lt;&lt; endl;
+                                    delete[] arr;
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Function Pointers</h3>
+        
+            <li>Write a C++ program to use function pointers to select different functions for addition, subtraction, multiplication, and division.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Addition: 5 + 3 = 8
+                            Subtraction: 5 - 3 = 2
+                            Multiplication: 5 * 3 = 15
+                            Division: 6 / 3 = 2
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int add(int a, int b) { return a + b; }
+                                int subtract(int a, int b) { return a - b; }
+                                int multiply(int a, int b) { return a * b; }
+                                int divide(int a, int b) { return a / b; }
+
+                                int main() {
+                                    int (*funcPtr)(int, int);
+                                    int a = 5, b = 3;
+                                    
+                                    funcPtr = add;
+                                    cout &lt;&lt; "Addition: " &lt;&lt; a &lt;&lt; " + " &lt;&lt; b &lt;&lt; " = " &lt;&lt; funcPtr(a, b) &lt;&lt; endl;
+                                    
+                                    funcPtr = subtract;
+                                    cout &lt;&lt; "Subtraction: " &lt;&lt; a &lt;&lt; " - " &lt;&lt; b &lt;&lt; " = " &lt;&lt; funcPtr(a, b) &lt;&lt; endl;
+                                    
+                                    funcPtr = multiply;
+                                    cout &lt;&lt; "Multiplication: " &lt;&lt; a &lt;&lt; " * " &lt;&lt; b &lt;&lt; " = " &lt;&lt; funcPtr(a, b) &lt;&lt; endl;
+                                    
+                                    int c = 6;
+                                    funcPtr = divide;
+                                    cout &lt;&lt; "Division: " &lt;&lt; c &lt;&lt; " / " &lt;&lt; b &lt;&lt; " = " &lt;&lt; funcPtr(c, b) &lt;&lt; endl;
+                                    
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Pointers to Structures</h3>
+        
+            <li>Write a C++ program to use a pointer to a structure to modify structure members.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Before modification: Name = John, Age = 25
+                            After modification: Name = Jane, Age = 30
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                struct Person {
+                                    string name;
+                                    int age;
+                                };
+
+                                void modifyPerson(Person *p) {
+                                    p->name = "Jane";
+                                    p->age = 30;
+                                }
+
+                                int main() {
+                                    Person person = {"John", 25};
+                                    cout &lt;&lt; "Before modification: Name = " &lt;&lt; person.name &lt;&lt; ", Age = " &lt;&lt; person.age &lt;&lt; endl;
+                                    modifyPerson(&person);
+                                    cout &lt;&lt; "After modification: Name = " &lt;&lt; person.name &lt;&lt; ", Age = " &lt;&lt; person.age &lt;&lt; endl;
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+
+    </div>
+    <div class="previous-button">
+        <a href="C++ exercise7.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="C++ exercise9.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

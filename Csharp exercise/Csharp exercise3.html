@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Csharp exercise1.html">Basic</a>
+        <a href="Csharp exercise2.html">Basic Algorithms</a>
+        <a href="Csharp exercise3.html">Switch Case</a>
+        <a href="Csharp exercise4.html">If Statements</a>
+        <a href="Csharp exercise5.html">Loop</a>
+        <a href="Csharp exercise6.html">Arrays</a>
+        <a href="Csharp exercise7.html">Logical Operators</a>
+        <a href="Csharp exercise8.html">Functions</a>
+        <a href="Csharp exercise9.html">Break/Continue</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Switch Case in C#</h2>
+
+        <h3>Basic Calculator</h3>
+        <ol>
+            <li>Write a C# program to create a simple calculator using switch-case that performs addition, subtraction, multiplication, and division.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter first number: 10
+                            Enter second number: 5
+                            Enter operator (+, -, *, /): *
+                            Result: 50
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter first number: ");
+                                        double num1 = Convert.ToDouble(Console.ReadLine());
+                                        Console.Write("Enter second number: ");
+                                        double num2 = Convert.ToDouble(Console.ReadLine());
+                                        Console.Write("Enter operator (+, -, *, /): ");
+                                        char op = Console.ReadKey().KeyChar;
+                                        Console.WriteLine();
+
+                                        double result = 0;
+                                        bool validOperation = true;
+
+                                        switch (op)
+                                        {
+                                            case '+':
+                                                result = num1 + num2;
+                                                break;
+                                            case '-':
+                                                result = num1 - num2;
+                                                break;
+                                            case '*':
+                                                result = num1 * num2;
+                                                break;
+                                            case '/':
+                                                if (num2 != 0)
+                                                {
+                                                    result = num1 / num2;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Division by zero is not allowed.");
+                                                    validOperation = false;
+                                                }
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid operator.");
+                                                validOperation = false;
+                                                break;
+                                        }
+
+                                        if (validOperation)
+                                        {
+                                            Console.WriteLine("Result: " + result);
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Day of the Week</h3>
+        
+            <li>Write a C# program to print the day of the week based on a number input (1 for Sunday, 2 for Monday, ..., 7 for Saturday) using switch-case.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number (1-7): 3
+                            Day of the week: Tuesday
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number (1-7): ");
+                                        int day = Convert.ToInt32(Console.ReadLine());
+
+                                        switch (day)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("Day of the week: Sunday");
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("Day of the week: Monday");
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("Day of the week: Tuesday");
+                                                break;
+                                            case 4:
+                                                Console.WriteLine("Day of the week: Wednesday");
+                                                break;
+                                            case 5:
+                                                Console.WriteLine("Day of the week: Thursday");
+                                                break;
+                                            case 6:
+                                                Console.WriteLine("Day of the week: Friday");
+                                                break;
+                                            case 7:
+                                                Console.WriteLine("Day of the week: Saturday");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid input. Please enter a number between 1 and 7.");
+                                                break;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Grade Evaluation</h3>
+        
+            <li>Write a C# program to evaluate the grade of a student based on their score using switch-case. The grades are: A (90-100), B (80-89), C (70-79), D (60-69), F (0-59).
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter the score (0-100): 85
+                            Grade: B
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter the score (0-100): ");
+                                        int score = Convert.ToInt32(Console.ReadLine());
+
+                                        switch (score)
+                                        {
+                                            case int n when (n >= 90 && n <= 100):
+                                                Console.WriteLine("Grade: A");
+                                                break;
+                                            case int n when (n >= 80 && n < 90):
+                                                Console.WriteLine("Grade: B");
+                                                break;
+                                            case int n when (n >= 70 && n < 80):
+                                                Console.WriteLine("Grade: C");
+                                                break;
+                                            case int n when (n >= 60 && n < 70):
+                                                Console.WriteLine("Grade: D");
+                                                break;
+                                            case int n when (n >= 0 && n < 60):
+                                                Console.WriteLine("Grade: F");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid score. Please enter a number between 0 and 100.");
+                                                break;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+
+        <h3>Month Days</h3>
+        <ol>
+            <li>Write a C# program to display the number of days in a month based on user input (1 for January, 2 for February, ..., 12 for December) using switch-case.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a month number (1-12): 2
+                            Number of days: 28 (or 29 in a leap year)
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a month number (1-12): ");
+                                        int month = Convert.ToInt32(Console.ReadLine());
+
+                                        switch (month)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("Number of days: 28 (or 29 in a leap year)");
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 4:
+                                                Console.WriteLine("Number of days: 30");
+                                                break;
+                                            case 5:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 6:
+                                                Console.WriteLine("Number of days: 30");
+                                                break;
+                                            case 7:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 8:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 9:
+                                                Console.WriteLine("Number of days: 30");
+                                                break;
+                                            case 10:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            case 11:
+                                                Console.WriteLine("Number of days: 30");
+                                                break;
+                                            case 12:
+                                                Console.WriteLine("Number of days: 31");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid month number. Please enter a number between 1 and 12.");
+                                                break;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Simple Vending Machine</h3>
+        
+            <li>Write a C# program to simulate a simple vending machine. The user can select from three products: Soda ($1), Chips ($0.5), and Candy ($0.75). Use switch-case to handle the product selection and display the price.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Select a product (1 - Soda, 2 - Chips, 3 - Candy): 2
+                            You selected Chips. The price is $0.5
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Select a product (1 - Soda, 2 - Chips, 3 - Candy): ");
+                                        int product = Convert.ToInt32(Console.ReadLine());
+
+                                        switch (product)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("You selected Soda. The price is $1.");
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("You selected Chips. The price is $0.5.");
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("You selected Candy. The price is $0.75.");
+                                                break;
+                                            default:
+                                                Console.WriteLine("Invalid selection. Please choose 1, 2, or 3.");
+                                                break;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Csharp exercise2.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Csharp exercise4.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="C++ exercise1.html">Basic</a>
+        <a href="C++ exercise2.html">Basic Algorithms</a>
+        <a href="C++ exercise3.html">Loops</a>
+        <a href="C++ exercise4.html">If Statements</a>
+        <a href="C++ exercise5.html">Switch Case</a>
+        <a href="C++ exercise6.html">Logical Operators</a>
+        <a href="C++ exercise7.html">Arrays</a>
+        <a href="C++ exercise8.html">Pointers</a>
+        <a href="C++ exercise9.html">Functions</a>
+    </div>
+     <!-- Include header.html -->
+     <div id="header"></div>   
+    <div class="Tutorial">
+        <h2>Logical Operators</h2>
+        <h3>AND (&&)</h3>
+        <ol>
+            <li>Write a program in C++ to check if a number is between 10 and 20 (inclusive) using the AND operator.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a number: 15
+                            The number is between 10 and 20.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int num;
+                                    cout &lt;&lt; "Input a number: ";
+                                    cin >> num;
+
+                                    if (num >= 10 && num <= 20) {
+                                        cout &lt;&lt; "The number is between 10 and 20." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The number is not between 10 and 20." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a character is a vowel (a, e, i, o, u) using the AND operator.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a character: e
+                            The character is a vowel.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    char ch;
+                                    cout &lt;&lt; "Input a character: ";
+                                    cin >> ch;
+
+                                    if (ch == 'a' && ch == 'e' && ch == 'i' && ch == 'o' && ch == 'u') {
+                                        cout &lt;&lt; "The character is a vowel." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The character is not a vowel." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a person is eligible to vote (age >= 18 and is a citizen) using the AND operator.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input age: 20
+                            Are you a citizen (1 for yes, 0 for no): 1
+                            You are eligible to vote.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int age, citizen;
+                                    cout &lt;&lt; "Input age: ";
+                                    cin >> age;
+                                    cout &lt;&lt; "Are you a citizen (1 for yes, 0 for no): ";
+                                    cin >> citizen;
+
+                                    if (age >= 18 && citizen == 1) {
+                                        cout &lt;&lt; "You are eligible to vote." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "You are not eligible to vote." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+        
+        <h3>OR (||)</h3>
+        <ol>
+            <li>Write a program in C++ to check if a number is less than 10 or greater than 20 using the OR operator.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a number: 25
+                            The number is less than 10 or greater than 20.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int num;
+                                    cout &lt;&lt; "Input a number: ";
+                                    cin >> num;
+
+                                    if (num < 10 || num > 20) {
+                                        cout &lt;&lt; "The number is less than 10 or greater than 20." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The number is between 10 and 20." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a character is a vowel (a, e, i, o, u) using the OR operator.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a character: o
+                            The character is a vowel.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    char ch;
+                                    cout &lt;&lt; "Input a character: ";
+                                    cin >> ch;
+
+                                    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                                        cout &lt;&lt; "The character is a vowel." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The character is not a vowel." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a person is eligible for a discount (age < 18 or age > 60) using the OR operator.
+                <button class="reveal-btn" onclick="revealAnswer(6)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input age: 65
+                            You are eligible for a discount.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer6" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int age;
+                                    cout &lt;&lt; "Input age: ";
+                                    cin >> age;
+
+                                    if (age < 18 || age > 60) {
+                                        cout &lt;&lt; "You are eligible for a discount." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "You are not eligible for a discount." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+
+        <h3>NOT (!)</h3>
+        <ol>
+            <li>Write a program in C++ to check if a number is not equal to 10 using the NOT operator.
+                <button class="reveal-btn" onclick="revealAnswer(7)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a number: 15
+                            The number is not equal to 10.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer7" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int num;
+                                    cout &lt;&lt; "Input a number: ";
+                                    cin >> num;
+
+                                    if (num != 10) {
+                                        cout &lt;&lt; "The number is not equal to 10." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The number is equal to 10." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a character is not a vowel (a, e, i, o, u) using the NOT operator.
+                <button class="reveal-btn" onclick="revealAnswer(8)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input a character: k
+                            The character is not a vowel.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer8" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    char ch;
+                                    cout &lt;&lt; "Input a character: ";
+                                    cin >> ch;
+
+                                    if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                                        cout &lt;&lt; "The character is not a vowel." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "The character is a vowel." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+            <li>Write a program in C++ to check if a person is not eligible to vote (age &lt; 18) using the NOT operator.
+                <button class="reveal-btn" onclick="revealAnswer(9)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Input age: 16
+                            You are not eligible to vote.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer9" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+
+                                int main() {
+                                    int age;
+                                    cout &lt;&lt; "Input age: ";
+                                    cin >> age;
+
+                                    if (!(age >= 18)) {
+                                        cout &lt;&lt; "You are not eligible to vote." &lt;&lt; endl;
+                                    } else {
+                                        cout &lt;&lt; "You are eligible to vote." &lt;&lt; endl;
+                                    }
+
+                                    return 0;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="C++ exercise5.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="C++ exercise7.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

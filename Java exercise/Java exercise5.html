@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Java exercise1.html">Basic</a>
+        <a href="Java exercise2.html">Basic Algorithms</a>
+        <a href="Java exercise3.html">Loops</a>
+        <a href="Java exercise4.html">If Statements</a>
+        <a href="Java exercise5.html">Switch Case</a>
+        <a href="Java exercise6.html">Logical Operators</a>
+        <a href="Java exercise7.html">Arrays</a>
+        <a href="Java exercise8.html">Break/Continue</a>
+        <a href="Java exercise9.html">Function</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Loops</h2>
+
+        <h3>For Loop</h3>
+        <ol>
+            <li>Write a Java program to print numbers from 1 to 10 using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            1 2 3 4 5 6 7 8 9 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class ForLoop1 {
+                                    public static void main(String[] args) {
+                                        for (int i = 1; i <= 10; i++) {
+                                            System.out.print(i + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to print the multiplication table of a given number using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            5 x 1 = 5
+                            5 x 2 = 10
+                            5 x 3 = 15
+                            5 x 4 = 20
+                            5 x 5 = 25
+                            5 x 6 = 30
+                            5 x 7 = 35
+                            5 x 8 = 40
+                            5 x 9 = 45
+                            5 x 10 = 50
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class ForLoop2 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int num = scanner.nextInt();
+                                        for (int i = 1; i <= 10; i++) {
+                                            System.out.println(num + " x " + i + " = " + (num * i));
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to find the factorial of a number using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            Factorial of 5 is: 120
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class ForLoop3 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int num = scanner.nextInt();
+                                        int factorial = 1;
+                                        for (int i = 1; i <= num; i++) {
+                                            factorial *= i;
+                                        }
+                                        System.out.println("Factorial of " + num + " is: " + factorial);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>While Loop</h3>
+        
+            <li>Write a Java program to print numbers from 1 to 10 using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            1 2 3 4 5 6 7 8 9 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class WhileLoop1 {
+                                    public static void main(String[] args) {
+                                        int i = 1;
+                                        while (i <= 10) {
+                                            System.out.print(i + " ");
+                                            i++;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to find the sum of digits of a number using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 123
+                            Sum of digits: 6
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class WhileLoop2 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int num = scanner.nextInt();
+                                        int sum = 0;
+                                        while (num != 0) {
+                                            sum += num % 10;
+                                            num /= 10;
+                                        }
+                                        System.out.println("Sum of digits: " + sum);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to reverse a number using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(6)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 1234
+                            Reversed number: 4321
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer6" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class WhileLoop3 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int num = scanner.nextInt();
+                                        int reversed = 0;
+                                        while (num != 0) {
+                                            int digit = num % 10;
+                                            reversed = reversed * 10 + digit;
+                                            num /= 10;
+                                        }
+                                        System.out.println("Reversed number: " + reversed);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Do-While Loop</h3>
+        
+            <li>Write a Java program to print numbers from 1 to 10 using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(7)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            1 2 3 4 5 6 7 8 9 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer7" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                public class DoWhileLoop1 {
+                                    public static void main(String[] args) {
+                                        int i = 1;
+                                        do {
+                                            System.out.print(i + " ");
+                                            i++;
+                                        } while (i <= 10);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to check if a number is a palindrome using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(8)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 121
+                            The number is a palindrome.
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer8" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class DoWhileLoop2 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int num = scanner.nextInt();
+                                        int originalNum = num;
+                                        int reversedNum = 0;
+
+                                        do {
+                                            int digit = num % 10;
+                                            reversedNum = reversedNum * 10 + digit;
+                                            num /= 10;
+                                        } while (num != 0);
+
+                                        if (originalNum == reversedNum) {
+                                            System.out.println("The number is a palindrome.");
+                                        } else {
+                                            System.out.println("The number is not a palindrome.");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a Java program to calculate the sum of natural numbers up to a given limit using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(9)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            Sum of natural numbers up to 5: 15
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer9" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import java.util.Scanner;
+
+                                public class DoWhileLoop3 {
+                                    public static void main(String[] args) {
+                                        Scanner scanner = new Scanner(System.in);
+                                        System.out.print("Enter a number: ");
+                                        int limit = scanner.nextInt();
+                                        int sum = 0;
+                                        int i = 1;
+
+                                        do {
+                                            sum += i;
+                                            i++;
+                                        } while (i <= limit);
+
+                                        System.out.println("Sum of natural numbers up to " + limit + ": " + sum);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+
+    </div>
+    <div class="previous-button">
+        <a href="Java exercise4.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Java exercise6.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

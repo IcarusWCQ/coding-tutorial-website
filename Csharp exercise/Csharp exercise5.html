@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Csharp exercise1.html">Basic</a>
+        <a href="Csharp exercise2.html">Basic Algorithms</a>
+        <a href="Csharp exercise3.html">Switch Case</a>
+        <a href="Csharp exercise4.html">If Statements</a>
+        <a href="Csharp exercise5.html">Loop</a>
+        <a href="Csharp exercise6.html">Arrays</a>
+        <a href="Csharp exercise7.html">Logical Operators</a>
+        <a href="Csharp exercise8.html">Functions</a>
+        <a href="Csharp exercise9.html">Break/Continue</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Loops in C#</h2>
+
+        <h3>For Loop</h3>
+        <ol>
+            <li>Write a C# program to print the first 10 natural numbers using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            1 2 3 4 5 6 7 8 9 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        for (int i = 1; i <= 10; i++)
+                                        {
+                                            Console.Write(i + " ");
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to find the factorial of a number using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            Factorial of 5 is 120
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int num = Convert.ToInt32(Console.ReadLine());
+                                        int factorial = 1;
+
+                                        for (int i = 1; i <= num; i++)
+                                        {
+                                            factorial *= i;
+                                        }
+
+                                        Console.WriteLine($"Factorial of {num} is {factorial}");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to print the Fibonacci series up to a given number using a for loop.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 7
+                            Fibonacci series: 0 1 1 2 3 5 8
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+
+                                        int a = 0, b = 1, c;
+
+                                        Console.Write("Fibonacci series: ");
+                                        for (int i = 0; i < n; i++)
+                                        {
+                                            Console.Write(a + " ");
+                                            c = a + b;
+                                            a = b;
+                                            b = c;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>While Loop</h3>
+        
+            <li>Write a C# program to print all even numbers between 1 and 20 using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            2 4 6 8 10 12 14 16 18 20
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        int i = 2;
+
+                                        while (i <= 20)
+                                        {
+                                            Console.Write(i + " ");
+                                            i += 2;
+                                        }
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to find the sum of digits of a number using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 12345
+                            Sum of digits: 15
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int num = Convert.ToInt32(Console.ReadLine());
+                                        int sum = 0;
+
+                                        while (num != 0)
+                                        {
+                                            sum += num % 10;
+                                            num /= 10;
+                                        }
+
+                                        Console.WriteLine($"Sum of digits: {sum}");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to reverse a number using a while loop.
+                <button class="reveal-btn" onclick="revealAnswer(6)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 12345
+                            Reversed number: 54321
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer6" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int num = Convert.ToInt32(Console.ReadLine());
+                                        int reversed = 0;
+
+                                        while (num != 0)
+                                        {
+                                            int digit = num % 10;
+                                            reversed = reversed * 10 + digit;
+                                            num /= 10;
+                                        }
+
+                                        Console.WriteLine($"Reversed number: {reversed}");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Do-While Loop</h3>
+        
+            <li>Write a C# program to print numbers from 1 to 10 using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(7)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            1 2 3 4 5 6 7 8 9 10
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer7" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        int i = 1;
+
+                                        do
+                                        {
+                                            Console.Write(i + " ");
+                                            i++;
+                                        }
+                                        while (i <= 10);
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to calculate the sum of numbers from 1 to n using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(8)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a number: 5
+                            Sum of numbers from 1 to 5 is 15
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer8" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        Console.Write("Enter a number: ");
+                                        int n = Convert.ToInt32(Console.ReadLine());
+                                        int sum = 0;
+                                        int i = 1;
+
+                                        do
+                                        {
+                                            sum += i;
+                                            i++;
+                                        }
+                                        while (i <= n);
+
+                                        Console.WriteLine($"Sum of numbers from 1 to {n} is {sum}");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+
+            <li>Write a C# program to repeatedly ask for user input until they enter a positive number using a do-while loop.
+                <button class="reveal-btn" onclick="revealAnswer(9)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Enter a positive number: -1
+                            Enter a positive number: -5
+                            Enter a positive number: 3
+                            You entered a positive number: 3
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer9" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                using System;
+
+                                class Program
+                                {
+                                    static void Main()
+                                    {
+                                        int num;
+
+                                        do
+                                        {
+                                            Console.Write("Enter a positive number: ");
+                                            num = Convert.ToInt32(Console.ReadLine());
+                                        }
+                                        while (num <= 0);
+
+                                        Console.WriteLine($"You entered a positive number: {num}");
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Csharp exercise4.html" class="previous-link">Previous</a>
+    </div>
+    <div class="next-button">
+        <a href="Csharp exercise6.html" class="next-link">Next</a>
+    </div>
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>

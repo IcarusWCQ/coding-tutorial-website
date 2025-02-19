@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Exercise</title>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+
+    </style>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            // Load header from sheader.html into the #header div
+            $('#header').load('../../sheader.html');
+        });
+    </script>  
+
+    <!-- Script for Sidebar -->
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            // Adjust content margin to accommodate sidebar
+            document.getElementById("header").style.marginLeft = "250px";
+            document.getElementById("header").style.width = "calc(100% - 250px)";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            // Reset content margin when sidebar is closed
+            document.getElementById("header").style.marginLeft = "0";
+            document.getElementById("header").style.width = "100%";
+        }
+
+        function revealAnswer(questionNumber) {
+                var answerDiv = document.getElementById("answer" + questionNumber);
+                if (answerDiv.style.display === "none") {
+                    answerDiv.style.display = "block";
+                } else {
+                    answerDiv.style.display = "none";
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+        <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../Mainmenu.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Tutorial</a>
+                    <div class="dropdown-content">
+                        <a href="../C Tutorial/C Tutorial1.html">C</a>
+                        <a href="../C++ Tutorial/C++ Tutorial1.html">C++</a>
+                        <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                        <a href="../Python Tutorial/Python Tutorial1.html">Python</a>
+                        <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Exercise</a>
+                    <div class="dropdown-content">
+                        <a href="../C Exercise/C exercise1.html">C</a>
+                        <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                        <a href="../Java exercise/Java exercise1.html">Java</a>
+                        <a href="../Python exercise/Python exercise1.html">Python</a>
+                        <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+        <a href="Python exercise1.html">Basic</a>
+        <a href="Python exercise2.html">Basic Algorithms</a>
+        <a href="Python exercise3.html">If Statements</a>
+        <a href="Python exercise4.html">Loop</a>
+        <a href="Python exercise5.html">Logical Operators</a>
+        <a href="Python exercise6.html">Arrays</a>
+        <a href="Python exercise7.html">Functions</a>
+        <a href="Python exercise8.html">Classes/Objects</a>
+        <a href="Python exercise9.html">Inheritance</a>
+    </div>
+    <!-- Include header.html -->
+    <div id="header"></div>  
+    <div class="Tutorial">
+        <h2>Inheritance</h2>
+
+        <h3>Single Inheritance</h3>
+        <ol>
+            <li>Write a Python program to create a base class `Animal` with a method `sound` that prints a generic sound. Create a derived class `Dog` that overrides the `sound` method to print "Bark".
+                <button class="reveal-btn" onclick="revealAnswer(1)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Animal sound:
+                            Some generic sound
+                            Dog sound:
+                            Bark
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer1" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Animal:
+                                    def sound(self):
+                                        print("Some generic sound")
+
+                                class Dog(Animal):
+                                    def sound(self):
+                                        print("Bark")
+
+                                animal = Animal()
+                                dog = Dog()
+                                print("Animal sound:")
+                                animal.sound()
+                                print("Dog sound:")
+                                dog.sound()
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Multiple Inheritance</h3>
+        
+            <li>Write a Python program to create two base classes `Person` and `Employee`. The `Person` class should have attributes `name` and `age`, and the `Employee` class should have an attribute `employee_id`. Create a derived class `Manager` that inherits from both `Person` and `Employee`, and includes an attribute `department`.
+                <button class="reveal-btn" onclick="revealAnswer(2)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Name: Alice
+                            Age: 35
+                            Employee ID: E123
+                            Department: HR
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer2" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Person:
+                                    def __init__(self, name, age):
+                                        self.name = name
+                                        self.age = age
+
+                                class Employee:
+                                    def __init__(self, employee_id):
+                                        self.employee_id = employee_id
+
+                                class Manager(Person, Employee):
+                                    def __init__(self, name, age, employee_id, department):
+                                        Person.__init__(self, name, age)
+                                        Employee.__init__(self, employee_id)
+                                        self.department = department
+
+                                    def display(self):
+                                        print(f"Name: {self.name}")
+                                        print(f"Age: {self.age}")
+                                        print(f"Employee ID: {self.employee_id}")
+                                        print(f"Department: {self.department}")
+
+                                manager = Manager("Alice", 35, "E123", "HR")
+                                manager.display()
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Multilevel Inheritance</h3>
+        
+            <li>Write a Python program to create a base class `Vehicle` with an attribute `make`. Create a derived class `Car` that inherits from `Vehicle` and includes an attribute `model`. Further, create a derived class `ElectricCar` that inherits from `Car` and includes an attribute `battery_capacity`.
+                <button class="reveal-btn" onclick="revealAnswer(3)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Make: Tesla
+                            Model: Model S
+                            Battery Capacity: 100 kWh
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer3" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Vehicle:
+                                    def __init__(self, make):
+                                        self.make = make
+
+                                class Car(Vehicle):
+                                    def __init__(self, make, model):
+                                        super().__init__(make)
+                                        self.model = model
+
+                                class ElectricCar(Car):
+                                    def __init__(self, make, model, battery_capacity):
+                                        super().__init__(make, model)
+                                        self.battery_capacity = battery_capacity
+
+                                    def display(self):
+                                        print(f"Make: {self.make}")
+                                        print(f"Model: {self.model}")
+                                        print(f"Battery Capacity: {self.battery_capacity} kWh")
+
+                                electric_car = ElectricCar("Tesla", "Model S", 100)
+                                electric_car.display()
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Hierarchical Inheritance</h3>
+        
+            <li>Write a Python program to create a base class `Shape` with an attribute `name`. Create two derived classes `Circle` and `Square` that inherit from `Shape` and include methods to calculate the area.
+                <button class="reveal-btn" onclick="revealAnswer(4)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Circle area: 78.53981633974483
+                            Square area: 25
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer4" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                import math
+
+                                class Shape:
+                                    def __init__(self, name):
+                                        self.name = name
+
+                                class Circle(Shape):
+                                    def __init__(self, name, radius):
+                                        super().__init__(name)
+                                        self.radius = radius
+
+                                    def area(self):
+                                        return math.pi * self.radius ** 2
+
+                                class Square(Shape):
+                                    def __init__(self, name, side_length):
+                                        super().__init__(name)
+                                        self.side_length = side_length
+
+                                    def area(self):
+                                        return self.side_length ** 2
+
+                                circle = Circle("Circle", 5)
+                                square = Square("Square", 5)
+                                print(f"{circle.name} area:", circle.area())
+                                print(f"{square.name} area:", square.area())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        
+
+        <h3>Hybrid Inheritance</h3>
+        
+            <li>Write a Python program to create a base class `Person` with an attribute `name`. Create two derived classes `Student` and `Teacher` that inherit from `Person` and include attributes `student_id` and `teacher_id` respectively. Further, create a derived class `TeachingAssistant` that inherits from both `Student` and `Teacher`, and includes an attribute `hours_per_week`.
+                <button class="reveal-btn" onclick="revealAnswer(5)">Reveal Answer</button>
+                <div class="code-snippet">
+                    <pre>
+                        Sample Output
+                        <code>
+                            Name: Bob
+                            Student ID: S123
+                            Teacher ID: T456
+                            Hours per week: 20
+                        </code>
+                    </pre>
+                </div>
+                <div id="answer5" style="display: none;">
+                    <div class="code-snippet">
+                        <pre>
+                            <code>
+                                class Person:
+                                    def __init__(self, name):
+                                        self.name = name
+
+                                class Student(Person):
+                                    def __init__(self, name, student_id):
+                                        super().__init__(name)
+                                        self.student_id = student_id
+
+                                class Teacher(Person):
+                                    def __init__(self, name, teacher_id):
+                                        super().__init__(name)
+                                        self.teacher_id = teacher_id
+
+                                class TeachingAssistant(Student, Teacher):
+                                    def __init__(self, name, student_id, teacher_id, hours_per_week):
+                                        Student.__init__(self, name, student_id)
+                                        Teacher.__init__(self, name, teacher_id)
+                                        self.hours_per_week = hours_per_week
+
+                                    def display(self):
+                                        print(f"Name: {self.name}")
+                                        print(f"Student ID: {self.student_id}")
+                                        print(f"Teacher ID: {self.teacher_id}")
+                                        print(f"Hours per week: {self.hours_per_week}")
+
+                                ta = TeachingAssistant("Bob", "S123", "T456", 20)
+                                ta.display()
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div class="previous-button">
+        <a href="Python exercise8.html" class="previous-link">Previous</a>
+    </div>
+    
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+</body>
+</html>
