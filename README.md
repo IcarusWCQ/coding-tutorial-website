@@ -16,7 +16,7 @@ This website provides structured **learning resources** for programming language
 ---
 
 ## ✨ Features  
-🔹 **Multi-Language Support** – Covers C, C++, Java, Python, and C#  
+🔹 **Multi-Language Tutorials** – Covers C, C++, Java, Python, and C#  
 🔹 **Dynamic UI** – jQuery-powered elements for real-time interaction  
 🔹 **User Authentication** – Sign-up, login, and logout functionality  
 🔹 **Session Management** – Personalized experience based on user role  
