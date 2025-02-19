@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Hub</title>
+    <link rel="icon" type="image/x-icon" href="Image/Black logo - no background.png">
+    <link rel="stylesheet" href="Code/style.css">
+    <!-- Include jQuery -->
+     <style>
+        .container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Function to update UI based on session status
+            function updateUI(logged_in, user_name, role) {
+                if (logged_in) {
+                    // Display welcome message and logout button
+                    var welcomeMessage = $('<p>Welcome, ' + user_name + '</p>');
+                    var logoutButton = $('<button class="nav_btn">Logout</button>').on('click', function(e) {
+                        e.preventDefault();
+                        // Perform logout via AJAX
+                        $.ajax({
+                            url: 'Code/logout.php',
+                            type: 'GET',
+                            success: function(response) {
+                                if (response.success) {
+                                    // Redirect or handle UI update after logout
+                                    window.location.href = 'Mainmenu.html';
+                                } else {
+                                    console.error('Logout failed');
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error occurred during logout:', error);
+                            }
+                        });
+                    });
+
+                    // Determine quiz link based on role
+                    var quizLink;
+                    if (role === 'user') {
+                        quizLink = '<li><a href="Code/Test/userindex.php">Quiz</a></li>';
+                    } else if (role === 'admin') {
+                        quizLink = '<li><a href="Code/Test/index.php">Quiz</a></li>';
+                    } else {
+                        // Default case if role is not specified or unknown
+                        quizLink = '<li><a href="#">Quiz</a></li>';
+                    }
+
+                    // Clear existing content and append welcome message + logout button
+                    $('.cta').empty().append(welcomeMessage).append(logoutButton);
+                    $('.nav_links').find('li:nth-child(3)').replaceWith(quizLink); // Replace third li element with quizLink
+                } else {
+                    // Show sign up button
+                    $('.cta').empty().append('<a href="Code/User/UserLogin.html"><button class="nav_btn">Sign Up</button></a>');
+                }
+            }
+
+            // Check if user is logged in
+            $.ajax({
+                url: 'Code/check_session.php',
+                type: 'GET',
+                dataType: 'json', // Ensure expected JSON response
+                success: function(response) {
+                    // Check if response is not empty
+                    if (response && Object.keys(response).length > 0) {
+                        updateUI(response.logged_in, response.user_name, response.role);
+                    } else {
+                        console.error('Empty or invalid response from check_session.php');
+                        // Handle default UI state (assume logged out)
+                        updateUI(false, '', '');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error checking session:', error);
+                    // Default behavior if session check fails (assume user is logged out)
+                    updateUI(false, '', '');
+                }
+            });
+
+            // Handle click on Quiz link when not logged in
+            $(document).on('click', '.nav_links li:nth-child(3) a', function(e) {
+                if (!$('.cta').text().includes('Welcome')) {
+                    e.preventDefault();
+                    alert('Login First');
+                }
+            });
+        });
+    </script>    
+
+</head>
+<body>
+    <header>
+        <img class="logo" src="Image/Black logo - no background.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Subjects</a></li>
+                <li><a href="">Quiz</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#Team">Our Team</a></li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <!-- This will be dynamically updated by JavaScript -->
+        </div>
+    </header>
+    <div class="container" id="home">
+        <div class="items">
+            <p class="items_quote">Discover your potential at any time, anyplace, with our state-of-the-art<br> virtual learning environment. </p>
+            <p class="items_meaning">Education is more than just acquiring knowledge; 
+                it's a transformative process that shapes our beliefs, values, 
+                and habits.Through teaching, training, storytelling, discussion, 
+                and directed research, we're committed to empowering you to reachyour full potential. 
+                Start your educational adventure with us!</p>
+        </div>
+        <div class="items">
+            <img src="Image/8262271.jpg" alt="">
+        </div>
+    </div>
+    <div class="container2" id="services">
+        <p class="h_subject">Popular Subjects We Provide</p>
+        <div class="wrapper">
+          <div class="item">
+            <div class="item-heading">C</div>
+            <img src="Image/png programming pic/c.png" alt="C Programming">
+            <div class="item-buttons">
+              <a href="Code/C Tutorial/C Tutorial1.html"><button>Tutorial</button></a>
+              <a href="Code/C Exercise/C exercise1.html"><button>Exercise</button></a>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-heading">C++</div>
+            <img src="Image/png programming pic/c++.jpg.png" alt="C++ Programming">
+            <div class="item-buttons">
+              <a href="Code/C++ Tutorial/C++ Tutorial1.html"><button>Tutorial</button></a>
+              <a href="Code/C++ exercise/C++ exercise1.html"><button>Exercise</button></a>
+              
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-heading">Java</div>
+            <img src="Image/png programming pic/java.png" alt="Java Programming">
+            <div class="item-buttons">
+              <a href="Code/Java Tutorial/Java Tutorial1.html"><button>Tutorial</button></a>
+              <a href="Code/Java exercise/Java exercise1.html"><button>Exercise</button></a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-heading">Python</div>
+            <img src="Image/png programming pic/phyhon.png" alt="Python Programming">
+            <div class="item-buttons">
+              <a href="Code/Python Tutorial/Python Tutorial1.html"><button>Tutorial</button></a>
+              <a href="Code/Python exercise/Python exercise1.html"><button>Exercise</button></a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-heading">C#</div>
+            <img src="Image/png programming pic/Csharp.png" alt="C# Programming">
+            <div class="item-buttons">
+              <a href="Code/CSharp Tutorial/CSharp Tutorial1.html"><button>Tutorial</button></a>
+              <a href="Code/Csharp exercise/Csharp exercise1.html"><button>Exercise</button></a>
+            </div>
+          </div>
+          </div>
+
+          <!-- Add more items as needed -->
+        </div>
+      </div>
+    <div class="container3" id="about">
+        <div class="tittle">
+            <h1>About Us</h1>
+        </div>
+        <div class="content">
+            <div class="article">
+                <h2>Mission and Vision</h2>
+                <p>Our mission at Coder Hub is simple: to provide a state-of-the-art virtual learning environment that empowers individuals to reach their goals. 
+                    We're committed to breaking down barriers to education and offering innovative solutions that make learning engaging, interactive, and accessible to all.<br>
+                    At Coder Hub, we envision a world where everyone has the opportunity to thrive through lifelong learning.
+                     Our vision is to revolutionize education by harnessing the power of technology to create a global community of learners. 
+                     We aspire to be the leading platform for individuals seeking to discover and cultivate their talents, no matter where they are in the world.
+
+                </p>
+                
+            </div>
+            <div class="image-section">
+                <img src="Image/8262271.jpg">
+            </div>
+        </div>
+    </div>
+    
+    <div class="team-selection" id="Team">
+        <div class="container4">
+            <div class="row">
+                <div class="tittle">
+                    <h1>Our Team</h1>
+                    <p>We are working closely together to create website of our dream.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="card">
+                    <div class="image-selection">
+                        <img src="Image/Danish.jpeg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h3>Danish</h3>
+                        <h4>Frontend Web Developer</h4>
+                        <p>
+                          In charge of organising front-end development and obtaining pictures to provide a flawless user experience. 
+                          Works closely with the frontend team to make sure that visual assets complement the functionality and design of the programme. 
+                          Works hard to improve the frontend layout's image integration so that the overall user interface is improved. 
+                          Aids in frontend development activities as well to improve the usability and performance of websites.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-selection">
+                        <img src="Image/Icarus.jpeg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h3>Icarus</h3>
+                        <h4>Backend Web Developer</h4>
+                        <p>
+                          In charge of backend development, which entails writing PHP and MySQL code. 
+                          focuses on backend features to make sure the programme runs smoothly and handles data effectively. 
+                          Uses MySQL for database management and PHP for server-side scripting to provide solid backend solutions that support the features and user interactions of the application.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-selection">
+                        <img src="Image/Imran.jpeg" alt="">
+                    </div>
+                    <div class="team-content">
+                        <h3>Imran</h3>
+                        <h4>Frontend Web Developer</h4>
+                        <p>
+                          Creating a website's layout entails planning its look and structuring its content to make navigating easy for users. 
+                          This entails rationally organising text and choosing fonts, colours, and graphic components for an appealing design. 
+                          Layout designers work in tandem with developers and designers to produce responsive layouts that adjust to various screen sizes. 
+                          They optimise designs for maximum usability and accessibility through testing and iteration, making sure the website effectively conveys its message.
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="f-item-con">
+            <div class="app-info">
+                <span class='app-name'>
+                    <span class='app-initial'>Coder</span>Hub
+                </span>
+                <p>We provides you with <strong>useful information</strong> and <strong>easy to use</strong> Website.</p>
+            </div>
+            <div class="useful-links">
+                <div class="footer-title">Developers</div>
+                <ul>
+                    <li>Icarus Wong</li>
+                    <li>Imran Danial</li>
+                    <li>Muhammad Danish</li>    
+                </ul>
+            </div>
+            <div class="help-sec">
+                <div class="footer-title">Social</div>
+                <ul>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>LinkIn</li>
+                </ul>
+            </div>
+            <div class="g-i-t">
+                <div class="footer-title">Get in Touch</div>
+                <form action="https://formspree.io/f/xkgwnzrl" method="post" class="space-y-2">
+                    <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                    <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                    <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                        placeholder='Message...'></textarea>
+                    <button type="submit" class='f-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class='cr-con'></div>
+    </footer>
+
+    <!-- Smooth Scrolling Script -->
+    <script src="Code/animation.js"></script>
+   
+</body>
+</html>

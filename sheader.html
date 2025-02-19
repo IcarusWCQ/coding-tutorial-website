@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Hub</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Function to update UI based on session status
+            function updateUI(logged_in, user_name) {
+                if (logged_in) {
+                    // Display welcome message and logout button
+                    var welcomeMessage = $('<p>Welcome, ' + user_name + '</p>');
+                    var logoutButton = $('<button class="nav_btn">Logout</button>').on('click', function(e) {
+                        e.preventDefault();
+                        // Perform logout via AJAX
+                        $.ajax({
+                            url: '../logout.php',
+                            type: 'GET',
+                            success: function(response) {
+                                if (response.success) {
+                                    // Redirect or handle UI update after logout
+                                    window.location.href = '../../Mainmenu.html';
+                                } else {
+                                    console.error('Logout failed');
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('Error occurred during logout:', error);
+                            }
+                        });
+                    });
+                    // Clear existing content and append welcome message + logout button
+                    $('.cta').empty().append(welcomeMessage).append(logoutButton);
+                } else {
+                    // Show sign up button
+                    $('.cta').empty().append('<a href="../User/UserLogin.html"><button class="nav_btn">Sign Up</button></a>');
+                }
+            }
+
+            // Check if user is logged in
+            $.ajax({
+                url: '../check_session.php',
+                type: 'GET',
+                dataType: 'json', // Ensure expected JSON response
+                success: function(response) {
+                    // Check if response is not empty
+                    if (response && Object.keys(response).length > 0) {
+                        updateUI(response.logged_in, response.user_name);
+                    } else {
+                        console.error('Empty or invalid response from check_session.php');
+                        // Handle default UI state (assume logged out)
+                        updateUI(false, '');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error checking session:', error);
+                    // Default behavior if session check fails (assume user is logged out)
+                    updateUI(false, '');
+                }
+            });
+        });
+    </script>
+
+<header>
+    <button class="sidebar-btn" onclick="openSidebar()">&#9776;</button>
+    <img class="logo" src="../../Image/Black logo - no background.png" alt="logo">
+    <nav>
+        <ul class="nav_links">
+            <li><a href="../../Mainmenu.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Tutorial</a>
+                <div class="dropdown-content">
+                    <a href="../C Tutorial/C Tutorial1.html">C</a>
+                    <a href="../C++Tutorial/C++Tutorial1.html">C++</a>
+                    <a href="../Java Tutorial/Java Tutorial1.html">Java</a>
+                    <a href="../Python Tutorial/Pyhton Tutorial1.html">Python</a>
+                    <a href="../CSharp Tutorial/CSharp Tutorial1.html">C#</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="">Exercise</a>
+                <div class="dropdown-content">
+                    <a href="../C Exercise/C exercise.html">C</a>
+                    <a href="../C++ exercise/C++ exercise1.html">C++</a>
+                    <a href="../Java exercise/Java exercise1.html">Java</a>
+                    <a href="../Phyton exercise/Python exercise1.html">Python</a>
+                    <a href="../Csharp exercise/Csharp exercise1.html">C#</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="cta">
+        <!-- This will be dynamically updated by JavaScript -->
+    </div>
+</header>
+</head>
