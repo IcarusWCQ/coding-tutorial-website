@@ -3,11 +3,6 @@
 ## 📌 **⚠️ This project was developed as part of a University Assignment. ⚠️**  
 **Coder Hub** is a **web-based coding tutorial platform** designed to help users learn programming languages through **tutorials, exercises, and quizzes**. It features **user authentication, dynamic UI elements, and an organized curriculum** for various programming languages.  
 
-This project was developed by **three team members**:  
-👨‍💻 **Icarus Wong** – Backend Web Developer (PHP, MySQL)  
-🎨 **Imran Danial** – Frontend Web Developer (HTML, CSS, JavaScript)  
-🖌️ **Muhammad Danish** – Frontend UI & Asset Management  
-
 ---
 
 ## 📌 Description  
